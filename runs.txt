@@ -1,0 +1,2 @@
+yosys -p "read_verilog -sv -I. cache_arrays.sv cache_ctrl.sv cache_top.sv"
+docker run --rm -it -v "$PWD":/work -w /work efabless/openlane:latest bash

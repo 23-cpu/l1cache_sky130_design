@@ -1,0 +1,8 @@
+# OpenLane outputs
+runs/
+work/
+tmp/
+*.log
+
+# macOS
+.DS_Store
