@@ -64,6 +64,14 @@ module tb_cache;
     logic [31:0] A;
      
     logic [31:0] B; 
+     
+    // to test the cache refill upon dirty eviction 
+    logic [31:0] C;
+    logic [31:0] rA;
+
+    // to test byte or halfword store
+    logic [31:0] D;
+    logic [31:0] rD;
 
     // DUT: arrays
     cache_arrays u_arrays (
@@ -173,7 +181,7 @@ module tb_cache;
     );
 
     // -------------------------
-    // CPU driver helper tasks
+    // CPU driver helper tasks 
     // -------------------------
     task automatic cpu_read(input logic [31:0] addr, output logic [31:0] rdata);
         begin
@@ -269,7 +277,58 @@ module tb_cache;
         end
         $display("  PASS: readback=%h", r0);
 
-        $display("ALL BASIC TESTS PASSED ✅");
+
+        $display("TEST4: Dirty eviction writeback (A dirty -> evict -> read A)");
+        C = addr_same_index_diff_tag(4'd3, 2);
+
+        // 1) Make A dirty
+        cpu_write(A, 32'h1111_2222, 4'b1111);
+        cpu_read(A, rA);
+        if (rA != 32'h1111_2222) $fatal(1, "A not written/dirty as expected");
+
+        // 2) Fill other ways / force eviction of A
+        // Your cache is 2-way. With A, B, C all same set, one must evict.
+        cpu_write(B, 32'h3333_4444, 4'b1111);
+        cpu_write(C, 32'h5555_6666, 4'b1111);
+
+        // 3) Now read A again. If A was evicted dirty, it must have been written back,
+        // then refilled correctly.
+        cpu_read(A, rA);
+        if (rA != 32'h1111_2222) begin
+            $fatal(1, "Dirty eviction writeback FAILED: got %h expected %h", rA, 32'h1111_2222);
+        end
+
+        $display("  PASS: dirty eviction writeback preserved A=%h", rA);
+        
+
+        $display("TEST5: Byte/halfword store masking (merge correctness)");
+        D = addr_same_index_diff_tag(4'd5, 0);
+
+        // Bring D into cache (read miss -> refill)
+        cpu_read(D, rD);
+
+        // Overwrite full word with known pattern
+        cpu_write(D, 32'hAABB_CCDD, 4'b1111);
+        cpu_read(D, rD);
+        if (rD != 32'hAABB_CCDD) $fatal(1, "Setup write failed: got %h", rD);
+
+        // byte store (example: update only byte0)
+        cpu_write(D, 32'h0000_00EE, 4'b0001); // write lowest byte to 0xEE
+        cpu_read(D, rD);
+        if (rD != 32'hAABB_CCEE) begin
+            $fatal(1, "Byte mask failed: got %h expected %h", rD, 32'hAABB_CCEE);
+        end
+
+        // halfword store
+        cpu_write(D, 32'h1122_0000, 4'b1100); // write bytes [3:2] to 0x11 0x22
+        cpu_read(D, rD);
+        if (rD != 32'h1122_CCEE) begin
+            $fatal(1, "Halfword mask failed: got %h expected %h", rD, 32'h1122_CCEE);
+        end
+
+        $display("  PASS: store masking works, final D=%h", rD);
+        
+        $display("***** ALL BASIC TESTS PASSED *****");
         $finish;
     end
 

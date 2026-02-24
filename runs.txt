@@ -1,2 +1,13 @@
 yosys -p "read_verilog -sv -I. cache_arrays.sv cache_ctrl.sv cache_top.sv"
 docker run --rm -it -v "$PWD":/work -w /work efabless/openlane:latest bash
+
+iverilog -g2012 -I rtl -o sim -s tb_cache \
+  rtl/cache_pkg.sv \
+  rtl/cache_arrays.sv \
+  rtl/cache_ctrl.sv \
+  rtl/simple_mem.sv \
+  tb/tb_cache.sv
+
+or
+
+iverilog -g2012 -I rtl -s tb_cache -o sim rtl/cache_pkg.sv rtl/cache_arrays.sv rtl/cache_ctrl.sv rtl/simple_mem.sv tb/tb_cache.sv
