@@ -1,3 +1,17 @@
+/* ==========================================================================
+ Testbench: cache_tb
+
+ Directed and randomized tests used to verify functional correctness
+ of the 2-way set associative cache.
+
+ Verifies:
+   - Write-allocate behavior
+   - Dirty line eviction
+   - PLRU replacement
+   - Read/write correctness under varying access patterns
+   - Half word stores
+============================================================================*/
+
 `timescale 1ns/1ps
 
 module tb_cache;
@@ -238,7 +252,7 @@ module tb_cache;
         $dumpfile("tb_cache.vcd");
         $dumpvars(0, tb_cache);
     end
-     
+
     initial begin
         // init
         cpu_req_valid = 0;
@@ -297,7 +311,7 @@ module tb_cache;
         cpu_write(B, 32'h3333_4444, 4'b1111);
         cpu_write(C, 32'h5555_6666, 4'b1111);
 
-        // 3) Now read A again. If A was evicted dirty, it must have been written back,
+        // 3) If A was evicted dirty, it must have been written back,
         // then refilled correctly.
         cpu_read(A, rA);
         if (rA != 32'h1111_2222) begin

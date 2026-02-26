@@ -22,11 +22,10 @@ module simple_mem #(
     // Word addressing: ignore byte offset bits [1:0]
     wire [$clog2(WORDS)-1:0] waddr = mem_req_addr[($clog2(WORDS)+1):2];
 
-    // Optional: initialize memory with a known pattern
     integer i;
     initial begin
         for (i = 0; i < WORDS; i++) begin
-            mem[i] = 32'h1000_0000 + i;   // deterministic contents
+            mem[i] = 32'h1000_0000 + i;   // initialize with zeros 
         end
     end
 

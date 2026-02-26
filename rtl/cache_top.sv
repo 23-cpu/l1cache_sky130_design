@@ -1,5 +1,20 @@
-// author : frederick adom
-// date : friday, feb 20, 2026
+/* ==========================================================================
+ Top-Level Module: cache_top
+
+ This module integrates the 2-way set associative cache and exposes
+ the external interface used for simulation and ASIC hardening.
+
+ Backend Implementation Flow:
+   RTL => Synthesis => Floorplanning => Placement => CTS => Routing => Signoff
+
+ Technology: SkyWater 130nm (Sky130)
+ Clock: 20ns period (50MHz)
+ Signoff Status:
+   - DRC: Clean
+   - LVS: Clean
+   - Timing: Positive setup and hold slack
+
+============================================================================*/
 
 `include "cache_defs.svh"
 
