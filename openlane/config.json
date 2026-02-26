@@ -1,0 +1,14 @@
+{
+  "DESIGN_NAME": "cache_top",
+  "VERILOG_FILES": [
+    "dir::src/cache_arrays.sv",
+    "dir::src/cache_ctrl.sv",
+    "dir::src/cache_top.sv"
+  ],
+  "VERILOG_INCLUDE_DIRS": [
+    "dir::src"
+  ],
+  "SYNTH_READ_VERILOG_ARGS": "-sv",
+  "CLOCK_PORT": "clk",
+  "CLOCK_PERIOD": 20
+}

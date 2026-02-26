@@ -233,6 +233,12 @@ module tb_cache;
     // -------------------------
     // Test sequence
     // -------------------------
+
+    initial begin
+        $dumpfile("tb_cache.vcd");
+        $dumpvars(0, tb_cache);
+    end
+     
     initial begin
         // init
         cpu_req_valid = 0;

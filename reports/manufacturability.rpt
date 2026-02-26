@@ -1,0 +1,19 @@
+Design Name: cache_top
+Run Directory: /work/openlane/designs/cache_top/runs/run1
+----------------------------------------
+
+Magic DRC Summary:
+Source: /work/openlane/designs/cache_top/runs/run1/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /work/openlane/designs/cache_top/runs/run1/logs/signoff/41-cache_top.lef.lvs.log
+Number of nets: 11831                      |Number of nets: 11831                      
+Design is LVS clean.
+----------------------------------------
+
+Antenna Summary:
+Source: /work/openlane/designs/cache_top/runs/run1/logs/signoff/44-arc.log
+Pin violations: 61
+Net violations: 43

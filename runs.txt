@@ -11,3 +11,1167 @@ iverilog -g2012 -I rtl -o sim -s tb_cache \
 or
 
 iverilog -g2012 -I rtl -s tb_cache -o sim rtl/cache_pkg.sv rtl/cache_arrays.sv rtl/cache_ctrl.sv rtl/simple_mem.sv tb/tb_cache.sv
+
+ 1016  git pull
+ 1017  git push
+ 1018  git pull origin main --rebase
+ 1019  git push -u origin main
+ 1020  git tag v1_rtl_verified
+ 1021  git push origin v1_rtl_verified
+ 1022  ocker run --rm -it -v "$PWD":/work -w /work efabless/openlane:latest bash
+ 1023  docker run --rm -it -v "$PWD":/work -w /work efabless/openlane:latest bash
+ 1024  gtkwave
+ 1025  brew install --cask gtkwave
+ 1026  gtkwave
+ 1027  gtkwave
+ 1028  which gtkwave
+ 1029  conda install gtkwave
+ 1030  conda install conda-forge::gtkwave
+ 1031  ls
+
+ git pull origin main --rebase  # pulling issue
+
+
+bash-5.2# ls 
+README.md  docs  openlane  rtl  runs.txt  sim  tb  tb_cache.vcd
+bash-5.2# cd .. 
+bash-5.2# ls 
+bin  dev  etc  nix  openlane1  proc  root  sys  tmp  usr  var  work
+bash-5.2# cd openlane1 
+bash-5.2# ls 
+configuration  dependencies  env-vars  flow.tcl  runs  scripts
+bash-5.2# ./flow.tcl -design /work/openlane/designs/cache_top -tag run1                            
+OpenLane v1.1.1 ()
+All rights reserved. (c) 2020-2024 Efabless Corporation and contributors.
+Available under the Apache License, version 2.0. See the LICENSE file for more details.
+
+[INFO]: Using configuration in '../../../../work/openlane/designs/cache_top/config.json'...
+[INFO]: Process Design Kit: sky130A
+[INFO]: Set PDK Root using Volare. If you haven't downloaded it yet, try 'volare fetch'.
+[INFO]: PDK Root: /root/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a
+couldn't read file "/root/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a/sky130A/libs.tech/openlane/config.tcl": no such file or directory
+    while executing
+"source $pdk_config"
+    (procedure "prep" line 172)
+    invoked from within
+"prep {*}$args"
+    (procedure "run_non_interactive_mode" line 22)
+    invoked from within
+"run_non_interactive_mode {*}$argv"
+    invoked from within
+"if { [info exists flags_map(-interactive)] || [info exists flags_map(-it)] } {
+    if { [info exists arg_values(-file)] } {
+        run_file [file nor..."
+    (file "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/.flow.tcl-wrapped" line 400)
+bash-5.2# volare 
+Usage: volare [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --version  Show the version and exit.
+  --help     Show this message and exit.
+
+Commands:
+  build      Builds the requested PDK.
+  enable     Activates a given installed PDK version.
+  fetch      Fetches a PDK to Volare's store without setting it as the...
+  ls         Lists PDK versions that are locally installed.
+  ls-remote  Lists PDK versions that are remotely available.
+  output     Outputs the currently enabled PDK version.
+  path       Prints the path of the volare PDK root.
+  prune      Removes all PDKs other than, if it exists, the one currently...
+  rm         Removes the PDK version specified.
+bash-5.2# volare enable sky130A 
+Version sky130A not found locally, attempting to download…
+Version sky130A not found remotely.
+bash-5.2# volare enable sky130 
+Version sky130 not found locally, attempting to download…
+Version sky130 not found remotely.
+bash-5.2# pip 
+bash: pip: command not found
+bash-5.2# which pip3 
+which: no pip3 in (/openlane:/nix/store/sx2v0i73mn1ih2z1nk61pm9n5gjgpidy-yosys/bin:/nix/store/7rg8zldbvabwxazsb8x8vfm5wgc7b24p-opensta/bin:/nix/store/7g30wn9qnkcvnkk5h9q1cqk0yl86qxil-openroad/bin:/nix/store/zdin7gzr638czb3isvn7hf2vrnm3k289-klayout/bin:/nix/store/b9kirpfkif1852bcy64f96np93xjalsi-netgen/bin:/nix/store/vqkxcjih78792qy07hw88gg0v3svr95a-magic-vlsi/bin:/nix/store/vh3lcg8gq2c3pxbqkqmrk3fmf3papk52-iverilog-12.0/bin:/nix/store/mky7gdsf8m3da333lxz2mjf2n3n1v1xy-verilator/bin:/nix/store/4hfh7f74sndd10ck47xifsxpr5n5j67y-tclFull/bin:/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/bin:/nix/store/j4m3lwhh4x0bzilvi77d512ahry775nq-ncurses-6.4/bin:/nix/store/k00cc6mbl072mnrad9wrq30mb2dcna2n-coreutils-full-9.5/bin:/nix/store/28gpmx3z6ss3znd7fhmrzmvk3x5lnfbk-gnugrep-3.11/bin:/nix/store/5zjms21vpxlkbc0qyl5pmj2sidfmzmd7-gnused-4.9/bin:/nix/store/306znyj77fv49kwnkpxmb0j2znqpa8bj-bash-5.2p26/bin:/nix/store/rik7p68cq7yzlj5pmfpf4yv6jnrpvlgf-gnutar-1.35/bin:/nix/store/j5chw7v1x3vlmf3wmdpdb5gwh9hl0b80-gzip-1.13/bin:/nix/store/jxjzgz1p0hdqsg8k17ivw5mgcd6ffx9c-git-2.44.1/bin:/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin)
+bash-5.2# volare ls-remote | head -n 30 
+c6d73a35f524070e85faff4a6a9eef49553ebc2b
+b01f6d281922e2185acf13fb855b338bb97ff460
+9d590c97000f7992c75e040d0c2b4f2bee977cdb
+8afc8346a57fe1ab7934ba5a6056ea8b43078e71
+9ca6f00b4360922e095033945f36198060b65086
+3863076405b31ae66bfc895a8cfe791706de9905
+aa683509e2e20358805fcbc3407776a1c890c4e6
+f2e289da6753f26157a308c492cf990fdcd4932d
+823ec23c421cfb1d6aec06b8140cbde11cbc95a0
+a6917d83263b9cfc3a746415654c35ecf3fff3cb
+3e9ceb124ecbaafc6673d96f6555594490928c75
+168187b63c5d574b0822badd06e8cc41fd05242f
+5335458a8d5f36b01d422645db0d03155b9b9faa
+0fb4d3a7d26e7fbbd4cc3376ccc251dad74639d6
+18dbe6102a36303bb8942b490efb0f33d2815bdb
+e3265dc4a07d8c926a010cd12d51852a6c83a5d9
+c4c9f8257321b8b9bdd9d40a914ef39e991b86d1
+84db6ca85bdf97265fb786e9fa0a03c11de4f025
+76760025e18728fb9705a4b2bf10dda0513b5bdd
+b44df7f7e5718d27a6be603b5b15838b9c99367d
+be5ef00717736ca29d5b0c810e3e5c777b075e91
+9b2c0bfc3587e64fbf715e7dc4851d65c61510f9
+0c1df35fd535299ea1ef74d1e9e15dedaeb34c32
+a918dc7c8e474a99b68c85eb3546b4ed91fe9e7b
+0fe599b2afb6708d281543108caf8310912f54af
+c887119ffa27d48613249b973a66dc667fe6ecd3
+31f6da2663f392b7472bdba39c1746170d293290
+4d5af10bfee4dab799566aaf903bb22aee69bac9
+42cd15c469adc1d303ffca4a7d32c29a4564a737
+6d4d11780c40b20ee63cc98e645307a9bf2b2ab8
+bash-5.2# volare ls-remote | tail -n 30  
+1cf0d5ddec191db3c878823ed0ded912319da9c6
+e884c4dcbf65101721529572ab6584f254e4f551
+9f1c2b06d2b5a6708cfe0b55679c7e84d37220cc
+327e268bdb7191fe07a28bd40eeac055bba9dffd
+3f9bdbd857564726b731760dc2c817e84ca7d8ac
+8f01d8f4d17110a53080cafc52c7762b94101f1d
+b8c6129fb60851c452a3136c2b8c603bb92cb180
+3b7c10b059e14066bef632f53ff0a00a4d5c9f4d
+141eea4d1bb8c6d4dd85fcbf2c0bdface7df9cfc
+35c7265f51749ad8d9fdbb575af22c7c8fab974e
+a519523b0d9bc913a6f87a5eed083597ed9e2e93
+3af133706e554a740cfe60f21e773d9eaa41838c
+0059588eebfc704681dc2368bd1d33d96281d10f
+a56526bfe45971322526978132b059d43ddd3a02
+de752ec0ba4da0ecb1fbcd309eeec4993d88f5bc
+d7c3a52fba997de2bfc15c375a052215528216ac
+f6e269f48d542b306e08e8f5a3577ec244aa44aa
+41e2da101560ea1b890dd9f34f6b5adec5016eea
+120b0bd69c745825a0b8b76f364043a1cd08bb6a
+8f6aff1881e5feae49acb6d5be53c4acc91bb235
+82d61e2c9c265c0f0e994233cd2d024c90adb45f
+fa87f8f4bbcc7255b6f0c0fb506960f531ae2392
+6d1673c46e5c420f08c0af3c8f9f759d2ab8bb40
+44a43c23c81b45b8e774ae7a84899a5a778b6b0b
+e8294524e5f67c533c5d0c3afa0bcc5b2a5fa066
+41c0908b47130d5675ff8484255b43f66463a7d6
+660c6bdc8715dc7b3db95a1ce85392bbf2a2b195
+5890e791e37699239abedfd2a67e55162e25cd94
+8fe7f760ece2bb49b1c310e60243f0558977dae5
+7519dfb04400f224f140749cda44ee7de6f5e095
+bash-5.2# volare enable 7519dfb04400f224f140749cda44ee7de6f5e095
+Version 7519dfb04400f224f140749cda44ee7de6f5e095 not found locally, attempting to download…
+Downloading common.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_fd_io.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_fd_pr.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_fd_sc_hd.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_fd_sc_hvl.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_ml_xx_hd.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Downloading sky130_sram_macros.tar.zst… ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Version 7519dfb04400f224f140749cda44ee7de6f5e095 enabled for the sky130 PDK.
+
+fixed the semi colon issue
+fixed the package error
+fixed the ifndef def error
+
+
+
+if { !($adder_type in [list "YOSYS" "FA" "RCA" "CSA"]) } {
+    log -stderr "\[ERROR] Misformatted SYNTH_ADDER_TYPE (\"$::env(SYNTH_ADDER_TYPE)\")."
+    log -stderr "\[ERROR] Correct format is \"YOSYS|FA|RCA|CSA\"."
+    exit 1
+}
+
+# Start Synthesis
+for { set i 0 } { $i < [llength $::env(VERILOG_FILES)] } { incr i } {
+    read_verilog -defer -sv {*}$vIdirsArgs [lindex $::env(VERILOG_FILES) $i]
+}
+
+if { [info exists ::env(SYNTH_PARAMETERS) ] } {
+    foreach define $::env(SYNTH_PARAMETERS) {
+        set param_and_value [split $define "="]
+        lassign $param_and_value param value
+        chparam -set $param $value $vtop
+    }
+}
+
+
+hierarchy -check -top $vtop
+select -module $vtop
+show -format dot -prefix $::env(synthesis_tmpfiles)/hierarchy
+select -clear
+
+yosys rename -top $vtop
+
+# Infer tri-state buffers.
+set tbuf_map false
+if { [info exists ::env(TRISTATE_BUFFER_MAP)] } {
+    if { [file exists $::env(TRISTATE_BUFFER_MAP)] } {
+        set tbuf_map true
+        tribuf
+    } else {
+        log "WARNING: TRISTATE_BUFFER_MAP is defined but could not be found: $::env(TRISTATE_BUFFER_MAP)"
+    }
+}
+
+# Handle technology mapping of RCS/CSA adders
+if { $adder_type == "RCA"} {
+    if { [info exists ::env(RIPPLE_CARRY_ADDER_MAP)] && [file exists $::env(RIPPLE_CARRY_ADDER_MAP)] } {
+        techmap -map $::env(RIPPLE_CARRY_ADDER_MAP)
+    }
+} elseif { $adder_type == "CSA"} {
+    if { [info exists ::env(CARRY_SELECT_ADDER_MAP)] && [file exists $::env(CARRY_SELECT_ADDER_MAP)] } {
+        techmap -map $::env(CARRY_SELECT_ADDER_MAP)
+    }
+}
+
+# taken from https://github.com/YosysHQ/yosys/blob/master/techlibs/common/synth.cc
+# <synth> split to run check -assert in the middle
+hierarchy -check -auto-top
+proc_clean
+proc_rmdead
+proc_prune
+proc_init
+proc_arst
+proc_rom
+proc_mux
+proc_dlatch
+proc_dff
+proc_memwr
+proc_clean
+tee -o "$::env(synth_report_prefix)_pre_synth.$CHK_EXT" check
+opt_expr
+if { $::env(SYNTH_NO_FLAT) != 1 } {
+    flatten
+}
+opt_expr
+opt_clean
+opt -nodffe -nosdff
+fsm
+opt
+wreduce
+peepopt
+opt_clean
+alumacc
+share
+opt
+memory -nomap
+opt_clean
+opt -fast -full
+memory_map
+opt -full
+techmap
+opt -fast
+abc -fast
+opt -fast
+hierarchy -check
+stat
+check
+delete t:\$print
+
+if { $::env(SYNTH_EXTRA_MAPPING_FILE) ne "" } {
+    if { [file exists $::env(SYNTH_EXTRA_MAPPING_FILE)] } {
+        log "\[INFO\] applying mappings in $::env(SYNTH_EXTRA_MAPPING_FILE)"
+        techmap -map $::env(SYNTH_EXTRA_MAPPING_FILE)
+    } else {
+        log -stderr "\[ERROR] file not found $::env(SYNTH_EXTRA_MAPPING_FILE)."
+    }
+}
+
+show -format dot -prefix $::env(synthesis_tmpfiles)/post_techmap
+
+if { $::env(SYNTH_SHARE_RESOURCES) } {
+    share -aggressive
+}
+
+set fa_map false
+if { $adder_type == "FA" } {
+    if { [info exists ::env(FULL_ADDER_MAP)] && [file exists $::env(FULL_ADDER_MAP)] } {
+        extract_fa -fa -v
+        extract_fa -ha -v
+        set fa_map true
+    }
+}
+
+opt
+opt_clean -purge
+
+tee -o "$::env(synth_report_prefix)_pre.stat" stat
+
+# Map tri-state buffers
+if { $tbuf_map } {
+    log {mapping tbuf}
+    techmap -map $::env(TRISTATE_BUFFER_MAP)
+    simplemap
+}
+
+# Map full adders
+if { $fa_map } {
+    techmap -map $::env(FULL_ADDER_MAP)
+}
+
+# Handle technology mapping of latches
+if { [info exists ::env(SYNTH_LATCH_MAP)] && [file exists $::env(SYNTH_LATCH_MAP)] } {
+    techmap -map $::env(SYNTH_LATCH_MAP)
+    simplemap
+}
+
+dfflibmap -liberty $dfflib
+tee -o "$::env(synth_report_prefix)_dff.stat" stat
+
+proc run_strategy {output script strategy_name {postfix_with_strategy 0}} {
+    upvar clock_period clock_period
+    upvar sdc_file sdc
+    upvar sclib lib
+
+    log "\[INFO\]: USING STRATEGY $strategy_name"
+
+    set strategy_escaped [string map {" " _} $strategy_name]
+
+    design -load checkpoint
+
+    abc -D "$clock_period" \
+        -constr "$sdc" \
+        -liberty "$lib" \
+        -script "$script" \
+        -showtmp
+
+    setundef -zero
+
+    hilomap -hicell {*}$::env(SYNTH_TIEHI_PORT) -locell {*}$::env(SYNTH_TIELO_PORT)
+
+    if { $::env(SYNTH_SPLITNETS) } {
+        splitnets
+        opt_clean -purge
+    }
+
+    if { $::env(SYNTH_BUFFER_DIRECT_WIRES) } {
+        insbuf -buf {*}$::env(SYNTH_MIN_BUF_PORT)
+    }
+
+    set stat_libs ""
+    foreach stat_lib "$::env(LIB_SYNTH_NO_PG)" {
+        set stat_libs "$stat_libs -liberty $stat_lib"
+    }
+    if { [info exists ::env(EXTRA_LIBS)] } {
+        foreach stat_lib "$::env(EXTRA_LIBS)" {
+            set stat_libs "$stat_libs -liberty $stat_lib"
+        }
+    }
+    global CHK_EXT
+    global STAT_EXT
+    tee -o "$::env(synth_report_prefix).$strategy_escaped.$CHK_EXT" check
+    tee -o "$::env(synth_report_prefix).$strategy_escaped.$STAT_EXT" stat -top $::env(DESIGN_NAME) {*}$stat_libs
+
+    if { [info exists ::env(SYNTH_AUTONAME)] && $::env(SYNTH_AUTONAME) } {
+        # Generate public names for the various nets, resulting in very long names that include
+        # the full heirarchy, which is preferable to the internal names that are simply
+        # sequential numbers such as `_000019_`. Renamed net names can be very long, such as:
+        #     manual_reset_gf180mcu_fd_sc_mcu7t5v0__dffq_1_Q_D_gf180mcu_ \
+        #     fd_sc_mcu7t5v0__nor3_1_ZN_A1_gf180mcu_fd_sc_mcu7t5v0__aoi21_ \
+        #     1_A2_A1_gf180mcu_fd_sc_mcu7t5v0__nand3_1_ZN_A3_gf180mcu_fd_ \
+        #     sc_mcu7t5v0__and3_1_A3_Z_gf180mcu_fd_sc_mcu7t5v0__buf_1_I_Z
+        autoname
+    }
+
+    set output_json $::env(synthesis_tmpfiles)/$::env(DESIGN_NAME).json
+    if { $postfix_with_strategy } {
+        set output "$output.$strategy_escaped.nl.v"
+        set output_json $::env(synthesis_tmpfiles)/$::env(DESIGN_NAME).$strategy_escaped.json
+    }
+
+    write_verilog -noattr -noexpr -nohex -nodec -defparam $output
+    write_json $output_json
+    design -reset
+}
+design -save checkpoint
+
+# Explore/Finalize
+if { [info exists ::env(SYNTH_EXPLORE)] && $::env(SYNTH_EXPLORE) } {
+    for { set index 0 }  { $index < [llength $delay_scripts] }  { incr index } {
+        set name "DELAY $index"
+        run_strategy\
+            "$::env(synthesis_results)/$::env(DESIGN_NAME)"\
+            [lindex $delay_scripts $index]\
+            "$name"\
+            1
+    }
+
+    for { set index 0 }  { $index < [llength $area_scripts] }  { incr index } {
+        set name "AREA $index"
+        run_strategy\
+            "$::env(synthesis_results)/$::env(DESIGN_NAME)"\
+            [lindex $area_scripts $index]\
+            "$name"\
+            1
+    }
+} else {
+    run_strategy\
+        "$::env(SAVE_NETLIST)"\
+        "$strategy_script"\
+        "$strategy_name"
+
+    if { $::env(SYNTH_NO_FLAT) } {
+        design -reset
+
+        if { [info exists ::env(SYNTH_DEFINES) ] } {
+            foreach define $::env(SYNTH_DEFINES) {
+                log "Defining $define"
+                verilog_defines -D$define
+            }
+        }
+
+        foreach lib $::env(LIB_SYNTH_COMPLETE_NO_PG) {
+            read_liberty -lib -ignore_miss_dir -setattr blackbox $lib
+        }
+
+        if { [info exists ::env(EXTRA_LIBS) ] } {
+            foreach lib $::env(EXTRA_LIBS) {
+                read_liberty -lib -ignore_miss_dir -setattr blackbox $lib
+            }
+        }
+
+        if { [info exists ::env(VERILOG_FILES_BLACKBOX)] } {
+            foreach verilog_file $::env(VERILOG_FILES_BLACKBOX) {
+                read_verilog -sv -lib {*}$vIdirsArgs $verilog_file
+            }
+        }
+
+        file copy -force $::env(SAVE_NETLIST) $::env(synthesis_results)/$::env(DESIGN_NAME).hierarchy.nl.v
+        read_verilog -sv $::env(SAVE_NETLIST)
+        synth -top $vtop -flatten
+
+        design -save checkpoint
+        run_strategy\
+            "$::env(SAVE_NETLIST)"\
+            "$strategy_script"\
+            "$strategy_name"
+    }
+
+}
+bash-5.2# ls      
+blackbox.tcl  elaborate.tcl  rewrite_verilog.tcl  synth.tcl
+bash-5.2# cd .. 
+bash-5.2# l  
+bash: l: command not found
+bash-5.2# ls 
+base.sdc                      compare_regression_reports.py  extract_antenna_count.py      klayout      mergeLib.py         openlane-1.1.1.tm        padframe_generator.py  synth_exp     write_runtime.py
+check_clock_ports.py          config                         extract_antenna_violators.py  libtrim.py   most_recent_run.py  openlane_utils-1.1.1.tm  parse_yosys_check.py   tcl_commands  yosys
+clean_models.py               count_lvs.py                   generate_reports.py           magic        new_tracks.py       openroad                 pdk_linker.py          topModuleGen
+compare_regression_design.py  drc_rosetta.py                 iterate_timing_closure.py     mergeLef.py  odbpy               or_issue.py              report                 utils
+bash-5.2# vim clean_models.py 
+bash: vim: command not found
+bash-5.2# cat clean_models.py 
+# Copyright 2023 Efabless Corporation
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+import re
+import click
+from enum import Enum
+
+
+@click.command()
+@click.option("-o", "--output", default=None)
+@click.argument(
+    "file_in",
+    type=click.Path(exists=True, file_okay=True, dir_okay=False),
+    required=True,
+)
+def clean_models(output, file_in):
+    class State(Enum):
+        output = 0
+        primitive = 1
+
+    out_file = None
+    if output is not None:
+        out_file = open(output, "w", encoding="utf8")
+    bad_yosys_line = re.compile(r"^\s+\S+\s*\(.*\).*;")
+    state = State.output
+    for line in open(file_in, "r", encoding="utf8"):
+        if state == State.output:
+            if line.strip().startswith("primitive"):
+                state = State.primitive
+            elif bad_yosys_line.search(line) is None:
+                print(line.strip("\n"), file=out_file)
+        elif state == State.primitive:
+            if line.strip().startswith("endprimitive"):
+                print("/* removed primitive */", file=out_file)
+                state = State.output
+
+
+if __name__ == "__main__":
+    clean_models()
+bash-5.2# ls  
+base.sdc                      compare_regression_reports.py  extract_antenna_count.py      klayout      mergeLib.py         openlane-1.1.1.tm        padframe_generator.py  synth_exp     write_runtime.py
+check_clock_ports.py          config                         extract_antenna_violators.py  libtrim.py   most_recent_run.py  openlane_utils-1.1.1.tm  parse_yosys_check.py   tcl_commands  yosys
+clean_models.py               count_lvs.py                   generate_reports.py           magic        new_tracks.py       openroad                 pdk_linker.py          topModuleGen
+compare_regression_design.py  drc_rosetta.py                 iterate_timing_closure.py     mergeLef.py  odbpy               or_issue.py              report                 utils
+bash-5.2# ls 
+base.sdc                      compare_regression_reports.py  extract_antenna_count.py      klayout      mergeLib.py         openlane-1.1.1.tm        padframe_generator.py  synth_exp     write_runtime.py
+check_clock_ports.py          config                         extract_antenna_violators.py  libtrim.py   most_recent_run.py  openlane_utils-1.1.1.tm  parse_yosys_check.py   tcl_commands  yosys
+clean_models.py               count_lvs.py                   generate_reports.py           magic        new_tracks.py       openroad                 pdk_linker.py          topModuleGen
+compare_regression_design.py  drc_rosetta.py                 iterate_timing_closure.py     mergeLef.py  odbpy               or_issue.py              report                 utils
+bash-5.2# cd .. 
+bash-5.2# ls 
+configuration  dependencies  env-vars  flow.tcl  runs  scripts
+bash-5.2# ls 
+configuration  dependencies  env-vars  flow.tcl  runs  scripts
+bash-5.2# ./flow.tcl -design /work/openlane/designs/cache_top -tag run1
+OpenLane v1.1.1 ()
+All rights reserved. (c) 2020-2024 Efabless Corporation and contributors.
+Available under the Apache License, version 2.0. See the LICENSE file for more details.
+
+[INFO]: Using configuration in '../../../../work/openlane/designs/cache_top/config.json'...
+[INFO]: Process Design Kit: sky130A
+[INFO]: Set PDK Root using Volare. If you haven't downloaded it yet, try 'volare fetch'.
+[INFO]: PDK Root: /root/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a
+[INFO]: Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Optimization Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Run Directory: /work/openlane/designs/cache_top/runs/run1
+[INFO]: Saving runtime environment...
+[INFO]: Preparing LEF files for the nom corner...
+[INFO]: Preparing LEF files for the min corner...
+[INFO]: Preparing LEF files for the max corner...
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[INFO]: Running linter (Verilator) (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/linter.log)...
+[ERROR]: 29 errors found by linter
+[ERROR]: Step 0 (verilator_lint_check) failed with error:
+-code 1 -level 0 -errorstack {INNER {invokeStk1 throw_error} CALL run_verilator CALL run_verilator_step CALL {run_non_interactive_mode -design /work/openlane/designs/cache_top -tag run1}} -errorcode NONE -errorinfo {
+    while executing
+"throw_error"
+    (procedure "run_verilator" line 86)
+    invoked from within
+"run_verilator"
+    (procedure "run_verilator_step" line 3)
+    invoked from within
+"run_verilator_step"} -errorline 1
+[INFO]: Saving current set of views in '../../../../work/openlane/designs/cache_top/runs/run1/results/final'...
+[INFO]: Generating final set of reports...
+[ERROR]: Failed to create manufacturability and metric reports:
+[ERROR]: Traceback (most recent call last):
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/generate_reports.py", line 184, in <module>
+    cli()
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/generate_reports.py", line 51, in cli
+    report = Report(design, tag, design_name, params, run_path).get_report()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 809, in get_report
+    *self.extract_all_values(),
+     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 359, in extract_all_values
+    power_report = Artifact(
+                   ^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 62, in __init__
+    self.pathname = matches[0]
+                    ~~~~~~~^^^
+IndexError: list index out of range
+[INFO]: Saving runtime environment...
+[ERROR]: Flow failed.
+[INFO]: The failure may have been because of the following warnings:
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+
+bash-5.2# ./flow.tcl -design /work/openlane/designs/cache_top -tag run1
+OpenLane v1.1.1 ()
+All rights reserved. (c) 2020-2024 Efabless Corporation and contributors.
+Available under the Apache License, version 2.0. See the LICENSE file for more details.
+
+[INFO]: Using configuration in '../../../../work/openlane/designs/cache_top/config.json'...
+[INFO]: Process Design Kit: sky130A
+[INFO]: Set PDK Root using Volare. If you haven't downloaded it yet, try 'volare fetch'.
+[INFO]: PDK Root: /root/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a
+[INFO]: Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Optimization Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Run Directory: /work/openlane/designs/cache_top/runs/run1
+[INFO]: Saving runtime environment...
+[INFO]: Preparing LEF files for the nom corner...
+[INFO]: Preparing LEF files for the min corner...
+[INFO]: Preparing LEF files for the max corner...
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[INFO]: Running linter (Verilator) (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/linter.log)...
+[ERROR]: 28 errors found by linter
+[ERROR]: Step 0 (verilator_lint_check) failed with error:
+-code 1 -level 0 -errorstack {INNER {invokeStk1 throw_error} CALL run_verilator CALL run_verilator_step CALL {run_non_interactive_mode -design /work/openlane/designs/cache_top -tag run1}} -errorcode NONE -errorinfo {
+    while executing
+"throw_error"
+    (procedure "run_verilator" line 86)
+    invoked from within
+"run_verilator"
+    (procedure "run_verilator_step" line 3)
+    invoked from within
+"run_verilator_step"} -errorline 1
+[INFO]: Saving current set of views in '../../../../work/openlane/designs/cache_top/runs/run1/results/final'...
+[INFO]: Generating final set of reports...
+[ERROR]: Failed to create manufacturability and metric reports:
+[ERROR]: Traceback (most recent call last):
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/generate_reports.py", line 184, in <module>
+    cli()
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/generate_reports.py", line 51, in cli
+    report = Report(design, tag, design_name, params, run_path).get_report()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 809, in get_report
+    *self.extract_all_values(),
+     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 359, in extract_all_values
+    power_report = Artifact(
+                   ^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 62, in __init__
+    self.pathname = matches[0]
+                    ~~~~~~~^^^
+IndexError: list index out of range
+[INFO]: Saving runtime environment...
+[ERROR]: Flow failed.
+[INFO]: The failure may have been because of the following warnings:
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+
+bash-5.2# ./flow.tcl -design /work/openlane/designs/cache_top -tag run1
+OpenLane v1.1.1 ()
+All rights reserved. (c) 2020-2024 Efabless Corporation and contributors.
+Available under the Apache License, version 2.0. See the LICENSE file for more details.
+
+[INFO]: Using configuration in '../../../../work/openlane/designs/cache_top/config.json'...
+[INFO]: Process Design Kit: sky130A
+[INFO]: Set PDK Root using Volare. If you haven't downloaded it yet, try 'volare fetch'.
+[INFO]: PDK Root: /root/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a
+[INFO]: Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Optimization Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Run Directory: /work/openlane/designs/cache_top/runs/run1
+[INFO]: Saving runtime environment...
+[INFO]: Preparing LEF files for the nom corner...
+[INFO]: Preparing LEF files for the min corner...
+[INFO]: Preparing LEF files for the max corner...
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[INFO]: Running linter (Verilator) (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/linter.log)...
+[ERROR]: 28 errors found by linter
+[ERROR]: Step 0 (verilator_lint_check) failed with error:
+-code 1 -level 0 -errorstack {INNER {invokeStk1 throw_error} CALL run_verilator CALL run_verilator_step CALL {run_non_interactive_mode -design /work/openlane/designs/cache_top -tag run1}} -errorcode NONE -errorinfo {
+    while executing
+"throw_error"
+    (procedure "run_verilator" line 86)
+    invoked from within
+"run_verilator"
+    (procedure "run_verilator_step" line 3)
+    invoked from within
+"run_verilator_step"} -errorline 1
+[INFO]: Saving current set of views in '../../../../work/openlane/designs/cache_top/runs/run1/results/final'...
+[INFO]: Generating final set of reports...
+[ERROR]: Failed to create manufacturability and metric reports:
+[ERROR]: Traceback (most recent call last):
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/generate_reports.py", line 184, in <module>
+    cli()
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/generate_reports.py", line 51, in cli
+    report = Report(design, tag, design_name, params, run_path).get_report()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 809, in get_report
+    *self.extract_all_values(),
+     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 359, in extract_all_values
+    power_report = Artifact(
+                   ^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 62, in __init__
+    self.pathname = matches[0]
+                    ~~~~~~~^^^
+IndexError: list index out of range
+[INFO]: Saving runtime environment...
+[ERROR]: Flow failed.
+[INFO]: The failure may have been because of the following warnings:
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+
+bash-5.2# ./flow.tcl -design /work/openlane/designs/cache_top -tag run1
+OpenLane v1.1.1 ()
+All rights reserved. (c) 2020-2024 Efabless Corporation and contributors.
+Available under the Apache License, version 2.0. See the LICENSE file for more details.
+
+[INFO]: Using configuration in '../../../../work/openlane/designs/cache_top/config.json'...
+[INFO]: Process Design Kit: sky130A
+[INFO]: Set PDK Root using Volare. If you haven't downloaded it yet, try 'volare fetch'.
+[INFO]: PDK Root: /root/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a
+[INFO]: Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Optimization Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Run Directory: /work/openlane/designs/cache_top/runs/run1
+[INFO]: Saving runtime environment...
+[INFO]: Preparing LEF files for the nom corner...
+[INFO]: Preparing LEF files for the min corner...
+[INFO]: Preparing LEF files for the max corner...
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[INFO]: Running linter (Verilator) (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/linter.log)...
+[INFO]: 0 errors found by linter
+[WARNING]: 15 warnings found by linter
+[STEP 1]
+[INFO]: Running Synthesis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/1-synthesis.log)...
+[STEP 2]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/2-sta.log)...
+[STEP 3]
+[INFO]: Running Initial Floorplanning (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/floorplan/3-initial_fp.log)...
+^C
+bash-5.2# ./flow.tcl -design /work/openlane/designs/cache_top -tag run1
+OpenLane v1.1.1 ()
+All rights reserved. (c) 2020-2024 Efabless Corporation and contributors.
+Available under the Apache License, version 2.0. See the LICENSE file for more details.
+
+[INFO]: Using configuration in '../../../../work/openlane/designs/cache_top/config.json'...
+[INFO]: Process Design Kit: sky130A
+[INFO]: Set PDK Root using Volare. If you haven't downloaded it yet, try 'volare fetch'.
+[INFO]: PDK Root: /root/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a
+[INFO]: Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Optimization Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Run Directory: /work/openlane/designs/cache_top/runs/run1
+[INFO]: Saving runtime environment...
+[INFO]: Preparing LEF files for the nom corner...
+[INFO]: Preparing LEF files for the min corner...
+[INFO]: Preparing LEF files for the max corner...
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[INFO]: Running linter (Verilator) (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/linter.log)...
+[INFO]: 0 errors found by linter
+[WARNING]: 15 warnings found by linter
+[STEP 1]
+[INFO]: Running Synthesis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/1-synthesis.log)...
+[ERROR]: during executing yosys script /nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/yosys/synth.tcl
+[ERROR]: Log: ../work/openlane/designs/cache_top/runs/run1/logs/synthesis/1-synthesis.log
+[ERROR]: Last 10 lines:
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: /work/openlane/designs/cache_top/src/cache_arrays.sv
+Parsing SystemVerilog input from `/work/openlane/designs/cache_top/src/cache_arrays.sv' to AST representation.
+Storing AST representation for module `$abstract\cache_arrays'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /work/openlane/designs/cache_top/src/cache_ctrl.sv
+/work/openlane/designs/cache_top/src/cache_ctrl.sv:1: ERROR: syntax error, unexpected ';'
+child process exited abnormally
+
+[ERROR]: Creating issue reproducible...
+[INFO]: Saving runtime environment...
+OpenLane TCL Issue Packager
+
+EFABLESS CORPORATION AND ALL AUTHORS OF THE OPENLANE PROJECT SHALL NOT BE HELD
+LIABLE FOR ANY LEAKS THAT MAY OCCUR TO ANY PROPRIETARY DATA AS A RESULT OF USING
+THIS SCRIPT. THIS SCRIPT IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND.
+
+BY USING THIS SCRIPT, YOU ACKNOWLEDGE THAT YOU FULLY UNDERSTAND THIS DISCLAIMER
+AND ALL IT ENTAILS.
+
+Parsing config file(s)…
+Setting up /work/openlane/designs/cache_top/runs/run1/issue_reproducible…
+Done.
+[INFO]: Reproducible packaged: Please tarball and upload '../work/openlane/designs/cache_top/runs/run1/issue_reproducible' if you're going to submit an issue.
+[ERROR]: Step 1 (synthesis) failed with error:
+-code 1 -level 0 -errorstack {INNER {invokeStk1 throw_error} CALL {run_tcl_script -tool yosys -no_consume /nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/yosys/synth.tcl -indexed_log /work/openlane/designs/cache_top/runs/run1/logs/synthesis/1-synthesis.log} CALL {run_yosys_script /nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/yosys/synth.tcl -indexed_log /work/openlane/designs/cache_top/runs/run1/logs/synthesis/1-synthesis.log} CALL {run_yosys -indexed_log /work/openlane/designs/cache_top/runs/run1/logs/synthesis/1-synthesis.log} CALL run_synthesis CALL {run_non_interactive_mode -design /work/openlane/designs/cache_top -tag run1}} -errorcode NONE -errorinfo {
+    while executing
+"throw_error"
+    (procedure "run_tcl_script" line 219)
+    invoked from within
+"run_tcl_script -tool yosys -no_consume {*}$args"
+    (procedure "run_yosys_script" line 2)
+    invoked from within
+"run_yosys_script $::env(SYNTH_SCRIPT) -indexed_log $arg_values(-indexed_log)"
+    (procedure "run_yosys" line 40)
+    invoked from within
+"run_yosys -indexed_log $log"
+    (procedure "run_synthesis" line 13)
+    invoked from within
+"run_synthesis"} -errorline 1
+[INFO]: Saving current set of views in '../../../../work/openlane/designs/cache_top/runs/run1/results/final'...
+[INFO]: Generating final set of reports...
+[ERROR]: Failed to create manufacturability and metric reports:
+[ERROR]: Traceback (most recent call last):
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/generate_reports.py", line 184, in <module>
+    cli()
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+         ^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/8ywrzlq8yyqrif2sfvbgg8vsxhj80ry7-python3-3.11.9-env/lib/python3.11/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/generate_reports.py", line 51, in cli
+    report = Report(design, tag, design_name, params, run_path).get_report()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 809, in get_report
+    *self.extract_all_values(),
+     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 359, in extract_all_values
+    power_report = Artifact(
+                   ^^^^^^^^^
+  File "/nix/store/xpc7xd67rslanlqh566s6jph53bn830w-openlane1-1.1.1/bin/scripts/report/report.py", line 62, in __init__
+    self.pathname = matches[0]
+                    ~~~~~~~^^^
+IndexError: list index out of range
+[INFO]: Saving runtime environment...
+[ERROR]: Flow failed.
+[INFO]: The failure may have been because of the following warnings:
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: 15 warnings found by linter
+
+bash-5.2# ./flow.tcl -design /work/openlane/designs/cache_top -tag run1
+OpenLane v1.1.1 ()
+All rights reserved. (c) 2020-2024 Efabless Corporation and contributors.
+Available under the Apache License, version 2.0. See the LICENSE file for more details.
+
+[INFO]: Using configuration in '../../../../work/openlane/designs/cache_top/config.json'...
+[INFO]: Process Design Kit: sky130A
+[INFO]: Set PDK Root using Volare. If you haven't downloaded it yet, try 'volare fetch'.
+[INFO]: PDK Root: /root/.volare/volare/sky130/versions/bdc9412b3e468c102d01b7cf6337be06ec6e9c9a
+[INFO]: Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Optimization Standard Cell Library: sky130_fd_sc_hd
+[INFO]: Run Directory: /work/openlane/designs/cache_top/runs/run1
+[INFO]: Saving runtime environment...
+[INFO]: Preparing LEF files for the nom corner...
+[INFO]: Preparing LEF files for the min corner...
+[INFO]: Preparing LEF files for the max corner...
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[INFO]: Running linter (Verilator) (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/linter.log)...
+[INFO]: 0 errors found by linter
+[WARNING]: 15 warnings found by linter
+[STEP 1]
+[INFO]: Running Synthesis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/1-synthesis.log)...
+[STEP 2]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/synthesis/2-sta.log)...
+[STEP 3]
+[INFO]: Running Initial Floorplanning (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/floorplan/3-initial_fp.log)...
+[INFO]: Floorplanned with width 466.44 and height 465.12.
+[STEP 4]
+[INFO]: Running IO Placement (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/floorplan/4-io.log)...
+[STEP 5]
+[INFO]: Running Tap/Decap Insertion (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/floorplan/5-tap.log)...
+[INFO]: Power planning with power {VPWR} and ground {VGND}...
+[STEP 6]
+[INFO]: Generating PDN (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/floorplan/6-pdn.log)...
+[STEP 7]
+[INFO]: Running Global Placement (skip_io) (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/placement/6-global_skip_io.log)...
+[STEP 8]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/placement/8-gpl_sta.log)...
+[STEP 9]
+[INFO]: Running IO Placement (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/placement/9-io.log)...
+[STEP 10]
+[INFO]: Running Global Placement (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/placement/9-global.log)...
+[STEP 11]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/placement/11-gpl_sta.log)...
+[STEP 12]
+[INFO]: Running Placement Resizer Design Optimizations (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/placement/12-resizer.log)...
+[STEP 13]
+[INFO]: Running Detailed Placement (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/placement/13-detailed.log)...
+[STEP 14]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/placement/14-dpl_sta.log)...
+[STEP 15]
+[INFO]: Running Clock Tree Synthesis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/cts/15-cts.log)...
+[STEP 16]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/cts/16-cts_sta.log)...
+[STEP 17]
+[INFO]: Running Placement Resizer Timing Optimizations (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/cts/17-resizer.log)...
+[STEP 18]
+[INFO]: Running Global Routing Resizer Design Optimizations (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/18-resizer_design.log)...
+[STEP 19]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/19-rsz_design_sta.log)...
+[STEP 20]
+[INFO]: Running Global Routing Resizer Timing Optimizations (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/20-resizer_timing.log)...
+[STEP 21]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/21-rsz_timing_sta.log)...
+[STEP 22]
+[INFO]: Running Global Routing (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/22-global.log)...
+[STEP 23]
+[INFO]: Writing Verilog (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/22-global_write_netlist.log)...
+[STEP 24]
+[INFO]: Running Single-Corner Static Timing Analysis (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/24-grt_sta.log)...
+[STEP 25]
+[INFO]: Running Fill Insertion (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/25-fill.log)...
+[STEP 26]
+[INFO]: Running Detailed Routing (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/26-detailed.log)...
+[INFO]: No Magic DRC violations after detailed routing.
+[STEP 27]
+[INFO]: Checking Wire Lengths (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/routing/27-wire_lengths.log)...
+[STEP 28]
+[INFO]: Running SPEF Extraction at the min process corner (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/28-parasitics_extraction.min.log)...
+[STEP 29]
+[INFO]: Running Multi-Corner Static Timing Analysis at the min process corner (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/29-rcx_mcsta.min.log)...
+[STEP 30]
+[INFO]: Running SPEF Extraction at the max process corner (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/30-parasitics_extraction.max.log)...
+[STEP 31]
+[INFO]: Running Multi-Corner Static Timing Analysis at the max process corner (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/31-rcx_mcsta.max.log)...
+[STEP 32]
+[INFO]: Running SPEF Extraction at the nom process corner (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/32-parasitics_extraction.nom.log)...
+[STEP 33]
+[INFO]: Running Multi-Corner Static Timing Analysis at the nom process corner (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/33-rcx_mcsta.nom.log)...
+[WARNING]: VSRC_LOC_FILES was not given a value, which may make the results of IR drop analysis inaccurate. If you are not integrating a top-level chip for manufacture, you may ignore this warning, otherwise, see the documentation for VSRC_LOC_FILES.
+[STEP 34]
+[INFO]: Creating IR Drop Report (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/34-irdrop.log)...
+[STEP 35]
+[INFO]: Running Magic to generate various views...
+[INFO]: Streaming out GDSII with Magic (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/35-gdsii.log)...
+[INFO]: Generating MAGLEF views...
+[INFO]: Generating lef with Magic (/work/openlane/designs/cache_top/runs/run1/logs/signoff/35-lef.log)...
+[STEP 36]
+[INFO]: Streaming out GDSII with KLayout (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/36-gdsii-klayout.log)...
+[STEP 37]
+[INFO]: Running XOR on the layouts using KLayout (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/37-xor.log)...
+[INFO]: No XOR differences between KLayout and Magic gds.
+[STEP 38]
+[INFO]: Running Magic Spice Export from LEF (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/38-spice.log)...
+[STEP 39]
+[INFO]: Writing Powered Verilog (logs: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/39-write_powered_def.log, ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/39-write_powered_verilog.log)...
+[STEP 40]
+[INFO]: Writing Verilog (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/39-write_powered_verilog.log)...
+[STEP 41]
+[INFO]: Running LVS (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/41-lvs.lef.log)...
+[STEP 42]
+[INFO]: Running Magic DRC (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/42-drc.log)...
+[INFO]: Converting Magic DRC database to various tool-readable formats...
+[INFO]: No Magic DRC violations after GDS streaming out.
+[STEP 43]
+[INFO]: Running KLayout DRC (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/43-drc-klayout.log)...
+[INFO]: No KLayout DRC violations after GDS streaming out.
+[STEP 44]
+[INFO]: Running OpenROAD Antenna Rule Checker (log: ../../../../work/openlane/designs/cache_top/runs/run1/logs/signoff/44-arc.log)...
+[INFO]: Saving current set of views in '../../../../work/openlane/designs/cache_top/runs/run1/results/final'...
+[INFO]: Saving runtime environment...
+[INFO]: Generating final set of reports...
+[INFO]: Created manufacturability report at '../../../../work/openlane/designs/cache_top/runs/run1/reports/manufacturability.rpt'.
+[INFO]: Created metrics report at '../../../../work/openlane/designs/cache_top/runs/run1/reports/metrics.csv'.
+[WARNING]: There are max fanout violations in the design at the Typical corner. Please refer to '../../../../work/openlane/designs/cache_top/runs/run1/reports/signoff/33-sta-rcx_nom/multi_corner_sta.checks.rpt'.
+[INFO]: There are no hold violations in the design at the Typical corner.
+[INFO]: There are no setup violations in the design at the Typical corner.
+[SUCCESS]: Flow complete.
+[INFO]: Note that the following warnings have been generated:
+[WARNING]: PNR_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: SIGNOFF_SDC_FILE is not set. It is recommended to write a custom SDC file for the design. Defaulting to BASE_SDC_FILE
+[WARNING]: 15 warnings found by linter
+[WARNING]: VSRC_LOC_FILES was not given a value, which may make the results of IR drop analysis inaccurate. If you are not integrating a top-level chip for manufacture, you may ignore this warning, otherwise, see the documentation for VSRC_LOC_FILES.
+[WARNING]: There are max fanout violations in the design at the Typical corner. Please refer to '../../../../work/openlane/designs/cache_top/runs/run1/reports/signoff/33-sta-rcx_nom/multi_corner_sta.checks.rpt'.
+
+bash-5.2# klayout 
+Info: Could not load the Qt platform plugin "xcb" in "" even though it was found.
+Fatal: This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+Available platform plugins are: wayland-egl, wayland, wayland-xcomposite-egl, wayland-xcomposite-glx, eglfs, linuxfb, minimal, minimalegl, offscreen, vnc, xcb.
+
+Aborted
+bash-5.2# ls      
+configuration  dependencies  env-vars  flow.tcl  runs  scripts
+bash-5.2# cd .. 
+bash-5.2# ls 
+bin  dev  etc  nix  openlane1  proc  root  sys  tmp  usr  var  work
+bash-5.2# cd openlane1
+bash-5.2# ls 
+configuration  dependencies  env-vars  flow.tcl  runs  scripts
+bash-5.2# klayout runs/results/final/gds/cache_top.gds
+Info: Could not load the Qt platform plugin "xcb" in "" even though it was found.
+Fatal: This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+Available platform plugins are: wayland-egl, wayland, wayland-xcomposite-egl, wayland-xcomposite-glx, eglfs, linuxfb, minimal, minimalegl, offscreen, vnc, xcb.
+
+Aborted
+bash-5.2# ls          
+configuration  dependencies  env-vars  flow.tcl  runs  scripts
+bash-5.2# cd .. 
+bash-5.2# ls 
+bin  dev  etc  nix  openlane1  proc  root  sys  tmp  usr  var  work
+bash-5.2# cd work 
+bash-5.2# ls 
+README.md  docs  openlane  rtl  runs.txt  sim  tb  tb_cache.vcd
+bash-5.2# cd .. 
+bash-5.2# ls 
+bin  dev  etc  nix  openlane1  proc  root  sys  tmp  usr  var  work
+bash-5.2# cd .. 
+bash-5.2# ls 
+bin  dev  etc  nix  openlane1  proc  root  sys  tmp  usr  var  work
+bash-5.2# cd openlane1
+bash-5.2# ls  
+configuration  dependencies  env-vars  flow.tcl  runs  scripts
+bash-5.2# cp runs ../work 
+cp: -r not specified; omitting directory 'runs'
+bash-5.2# cp runs -r ../work 
+bash-5.2# cd ../work 
+bash-5.2# ls 
+README.md  docs  openlane  rtl  runs.txt  sim  tb  tb_cache.vcd
+bash-5.2# cd .. 
+bash-5.2# ls 
+bin  dev  etc  nix  openlane1  proc  root  sys  tmp  usr  var  work
+bash-5.2# cp runs -r ../work . 
+cp: cannot stat 'runs': No such file or directory
+cp: '../work' and './work' are the same file
+bash-5.2# cp runs -r ../work/
+cp: cannot stat 'runs': No such file or directory
+bash-5.2# cp runs -r ../work 
+cp: cannot stat 'runs': No such file or directory
+bash-5.2# ls 
+bin  dev  etc  nix  openlane1  proc  root  sys  tmp  usr  var  work
+bash-5.2# cd openlane1 
+bash-5.2# cp -r runs ../work 
+bash-5.2# ls 
+configuration  dependencies  env-vars  flow.tcl  runs  scripts
+bash-5.2# cd ../work 
+bash-5.2# ls 
+README.md  docs  openlane  rtl  runs.txt  sim  tb  tb_cache.vcd
+bash-5.2# ls 
+README.md  docs  openlane  rtl  run1  runs.txt  sim  tb  tb_cache.vcd
+bash-5.2# exit 
+exit
+   
+^C^C^C
+got 3 SIGTERM/SIGINTs, forcefully exiting
+(base) frederickadom@MacBookPro l1cache_sky130 % 
+(base) frederickadom@MacBookPro l1cache_sky130 % ls 
+docs            openlane        README.md       rtl             run1            runs.txt        sim             tb              tb_cache.vcd
+(base) frederickadom@MacBookPro l1cache_sky130 % klayout  
+zsh: command not found: klayout
+(base) frederickadom@MacBookPro l1cache_sky130 % brew install klayout 
+==> Auto-updating Homebrew...
+Adjust how often this is run with `$HOMEBREW_AUTO_UPDATE_SECS` or disable with
+`$HOMEBREW_NO_AUTO_UPDATE=1`. Hide these hints with `$HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Auto-updated Homebrew!
+==> Updated Homebrew from 5.0.1 (49a172a9e4) to 5.0.15 (36bd496f76).
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+cwalk: Cross-platform path library for C/C++
+pi-coding-agent: AI agent toolkit
+shadcn: CLI for adding components to your project
+==> New Casks
+macusb: Tool to create bootable USB installers
+
+You have 32 outdated formulae installed.
+
+
+The 5.0.15 changelog can be found at:
+  https://github.com/Homebrew/brew/releases/tag/5.0.15
+==> Downloading https://raw.githubusercontent.com/Homebrew/homebrew-cask/179423bbe0dd3436469f06fff3080d6a917c6638/Casks/k/klayout.rb
+############################################################################################################################################################################################################## 100.0%
+==> Downloading https://www.klayout.org/downloads/MacOS/HW-klayout-0.30.6-macOS-Sequoia-1-qt5MP-RsysPhb311.dmg
+############################################################################################################################################################################################################## 100.0%
+==> Installing Cask klayout
+==> Moving App Suite 'KLayout' to '/Applications/KLayout'
+🍺  klayout was successfully installed!
+(base) frederickadom@MacBookPro l1cache_sky130 % klayout 
+zsh: command not found: klayout
+(base) frederickadom@MacBookPro l1cache_sky130 % Klayout 
+zsh: command not found: Klayout
+(base) frederickadom@MacBookPro l1cache_sky130 % which klayout 
+klayout not found
+(base) frederickadom@MacBookPro l1cache_sky130 % ls 
+docs            openlane        README.md       rtl             run1            runs.txt        sim             tb              tb_cache.vcd
+(base) frederickadom@MacBookPro l1cache_sky130 % iverilog 
+zsh: command not found: iverilog
+(base) frederickadom@MacBookPro l1cache_sky130 % docker run --rm -it -v "$PWD":/work -w /work efabless/openlane:latest bash
+bash-5.2# ls\
+> l
+bash: lsl: command not found
+bash-5.2# ls 
+README.md  docs  openlane  rtl  run1  runs.txt  sim  tb  tb_cache.vcd
+bash-5.2# iverilog -g2012 -I rtl -s tb_cache -o sim rtl/cache_pkg.sv rtl/cache_arrays.sv rtl/cache_ctrl.sv rtl/simple_mem.sv tb/tb_cache.sv
+bash-5.2# vvp sim 
+VCD info: dumpfile tb_cache.vcd opened for output.
+TEST1: Read miss then read hit (same addr)
+  PASS: r0=10000003 r1=10000003
+TEST2: Write hit then read back
+  PASS: readback=deadbeef
+TEST3: Write miss (new tag, same index), then read back
+  PASS: readback=cafebabe
+TEST4: Dirty eviction writeback (A dirty -> evict -> read A)
+  PASS: dirty eviction writeback preserved A=11112222
+TEST5: Byte/halfword store masking (merge correctness)
+  PASS: store masking works, final D=1122ccee
+***** ALL BASIC TESTS PASSED *****
+tb/tb_cache.sv:338: $finish called at 955000 (1ps)
+bash-5.2# ls 
+README.md  docs  openlane  rtl  run1  runs.txt  sim  tb  tb_cache.vcd
+bash-5.2# exit 
+exit
+(base) frederickadom@MacBookPro l1cache_sky130 % ls 
+docs            openlane        README.md       rtl             run1            runs.txt        sim             tb              tb_cache.vcd
+(base) frederickadom@MacBookPro l1cache_sky130 % git status 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   runs.txt
+        modified:   sim
+        modified:   tb/tb_cache.sv
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        openlane/
+        run1/
+        tb_cache.vcd
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(base) frederickadom@MacBookPro l1cache_sky130 % cd run1 
+(base) frederickadom@MacBookPro run1 % ls 
+cmds.log        config_in.tcl   config.tcl      logs            OPENLANE_COMMIT openlane.log    PDK_SOURCES     reports         results         runtime.yaml    tmp             warnings.log
+(base) frederickadom@MacBookPro run1 % vim warnings.log 
+(base) frederickadom@MacBookPro run1 % ls 
+cmds.log        config_in.tcl   config.tcl      logs            OPENLANE_COMMIT openlane.log    PDK_SOURCES     reports         results         runtime.yaml    tmp             warnings.log
+(base) frederickadom@MacBookPro run1 % cd logs 
+(base) frederickadom@MacBookPro logs % ls 
+cts             floorplan       placement       routing         signoff         synthesis
+(base) frederickadom@MacBookPro logs % cd synthesis 
+(base) frederickadom@MacBookPro synthesis % ls 
+1-synthesis.errors      1-synthesis.log         1-synthesis.warnings    2-sta.errors            2-sta.log               2-sta.warnings          linter.log
+(base) frederickadom@MacBookPro synthesis % vim linter.log 
+(base) frederickadom@MacBookPro synthesis % ls 
+1-synthesis.errors      1-synthesis.log         1-synthesis.warnings    2-sta.errors            2-sta.log               2-sta.warnings          linter.log
+(base) frederickadom@MacBookPro synthesis % ls 
+1-synthesis.errors      1-synthesis.log         1-synthesis.warnings    2-sta.errors            2-sta.log               2-sta.warnings          linter.log
+(base) frederickadom@MacBookPro synthesis % cd .. 
+(base) frederickadom@MacBookPro logs % ls 
+cts             floorplan       placement       routing         signoff         synthesis
+(base) frederickadom@MacBookPro logs % cd .. 
+(base) frederickadom@MacBookPro run1 % ls 
+cmds.log        config_in.tcl   config.tcl      logs            OPENLANE_COMMIT openlane.log    PDK_SOURCES     reports         results         runtime.yaml    tmp             warnings.log
+(base) frederickadom@MacBookPro run1 % cd .. 
+(base) frederickadom@MacBookPro l1cache_sky130 % ls 
+docs            openlane        README.md       rtl             run1            runs.txt        sim             tb              tb_cache.vcd
+(base) frederickadom@MacBookPro l1cache_sky130 % 

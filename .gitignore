@@ -2,6 +2,10 @@
 runs/
 work/
 tmp/
+openlane2/
+runs.txt/
+run1/
+/none
 *.log
 
 # macOS
