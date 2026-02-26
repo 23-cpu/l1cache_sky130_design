@@ -5,7 +5,8 @@ tmp/
 openlane2/
 runs.txt/
 run1/
-/none
+none/
+docs/
 *.log
 
 # macOS
