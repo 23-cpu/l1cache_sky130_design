@@ -58,3 +58,7 @@ Complete RTL-to-GDSII flow executed:
 - Positive setup slack at signoff
 - Positive hold slack at signoff
 ---
+
+## Ongoing Improvements
+- Adding step-by-step instructions to reproduce the full RTL-to-GDS flow.
+- Expanding verification with a UVM-based constrained-random testbench.
